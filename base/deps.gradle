@@ -1,0 +1,13 @@
+project(':base-api'){
+    dependencies{
+    }
+}
+project(':base-core'){
+    dependencies{
+    }
+}
+project(':base-rest'){
+    dependencies{
+        compile project(':base-core')
+    }
+}

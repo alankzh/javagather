@@ -1,0 +1,20 @@
+project(':account-api'){
+    dependencies{
+    }
+}
+project(':account-core'){
+    dependencies{
+    }
+}
+project(':account-biz'){
+    dependencies{
+        compile project(':account-core')
+    }
+}
+project(':account-rest'){
+    dependencies{
+        compile project(':account-biz')
+        compile project(':account-api')
+        compile project(':base-rest')
+    }
+}

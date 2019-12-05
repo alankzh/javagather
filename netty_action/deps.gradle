@@ -1,0 +1,12 @@
+project(':netty_action-base'){
+}
+project(':netty_action-client'){
+    dependencies{
+        compile project(':netty_action-base')
+    }
+}
+project(':netty_action-server'){
+    dependencies{
+        compile project(':netty_action-base')
+    }
+}

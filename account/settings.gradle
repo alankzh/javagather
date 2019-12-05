@@ -1,0 +1,6 @@
+include 'account-api'
+include 'account-core'
+include 'account-biz'
+include 'account-rest'
+
+rootProject.name='account'

@@ -1,0 +1,10 @@
+includeDir 'account'
+includeDir 'netty_action'
+includeDir 'base'
+
+def includeDir(String dir) {
+    def file = rootDir.toPath().resolve("$dir/deps.gradle").toFile()
+    if (file.exists()) {
+        apply from: file
+    }
+}

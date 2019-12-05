@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="E:/gradle-4.8.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/account/account-api" />
+            <option value="$PROJECT_DIR$/account/account-biz" />
+            <option value="$PROJECT_DIR$/account/account-core" />
+            <option value="$PROJECT_DIR$/account/account-rest" />
+            <option value="$PROJECT_DIR$/base/base-api" />
+            <option value="$PROJECT_DIR$/base/base-core" />
+            <option value="$PROJECT_DIR$/base/base-rest" />
+            <option value="$PROJECT_DIR$/jmh/benchmark" />
+            <option value="$PROJECT_DIR$/netty_action/netty_action-base" />
+            <option value="$PROJECT_DIR$/netty_action/netty_action-client" />
+            <option value="$PROJECT_DIR$/netty_action/netty_action-server" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

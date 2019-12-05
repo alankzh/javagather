@@ -1,0 +1,5 @@
+include 'netty_action-client'
+include 'netty_action-server'
+include 'netty_action-base'
+
+rootProject.name='netty_action'

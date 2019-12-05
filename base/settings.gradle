@@ -1,0 +1,5 @@
+include 'base-api'
+include 'base-rest'
+include 'base-core'
+
+rootProject.name=base

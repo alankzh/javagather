@@ -1,0 +1,51 @@
+ext {
+    ver = [
+            spring_boot                 : '2.1.6.RELEASE',
+            spring                      : '5.1.8.RELEASE',
+            swagger                     : '2.8.0',
+            janino                      : '3.0.8',
+            lombok                      : '1.18.4',
+            slf4j                       : '1.7.26',
+            logback                     : '1.2.3',
+            netty                       : '4.1.43.Final',
+            jmh                         : '1.22'
+    ]
+    lib = [
+            // spring
+            spring_web                         : "org.springframework:spring-web:$ver.spring",
+
+            // spring boot
+            spring_boot_starter                : "org.springframework.boot:spring-boot-starter:$ver.spring_boot",
+            spring_boot_starter_web            : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
+            spring_boot_starter_test           : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
+            spring_boot_starter_undertow       : "org.springframework.boot:spring-boot-starter-undertow:$ver.spring_boot",
+
+            // gradle plugin
+            spring_boot_gradle_plugin          : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
+
+            netty                              : "io.netty:netty-all:$ver.netty",
+            
+            // utils
+            janino                             : "org.codehaus.janino:janino:$ver.janino",
+            lombok                             : "org.projectlombok:lombok:$ver.lombok"
+    ]
+
+
+    libGroup = [
+            swagger: [
+                    "io.springfox:springfox-swagger2:$ver.swagger",
+                    "io.springfox:springfox-swagger-ui:$ver.swagger",
+                    "io.springfox:springfox-bean-validators:$ver.swagger"
+            ],
+            logback:[
+                    "org.slf4j:slf4j-api:$ver.slf4j",
+                    "ch.qos.logback:logback-classic:$ver.logback",
+                    lib.janino,
+                    "ch.qos.logback:logback-core:$ver.logback"
+            ],
+            jmhGroup:[
+                    "org.openjdk.jmh:jmh-core:$ver.jmh",
+                    "org.openjdk.jmh:jmh-generator-annprocess:$ver.jmh"
+            ]
+    ]
+}

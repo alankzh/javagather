@@ -1,0 +1,3 @@
+dependencies{
+    mainClassName='alankzh.blog.netty.server.EchoServer'
+}

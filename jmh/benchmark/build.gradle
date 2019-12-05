@@ -1,0 +1,4 @@
+dependencies{
+    compile libGroup.jmhGroup
+    compile lib.lombok
+}

@@ -1,0 +1,5 @@
+dependencies{
+    compile lib.netty
+    compile libGroup.logback
+    compile lib.lombok
+}

@@ -1,0 +1,15 @@
+前端接入gateway网关
+account负责鉴权、授权、账户服务
+pages负责网页、文章
+comment负责评论
+
+core -> biz
+          |
+          v
+api  -> rest
+
+
+deps.gradle 建议各服务下子模块的依赖关系
+各子模块内部的build.gradle建立自身内部的依赖
+
+对外暴露的服务为service模块
