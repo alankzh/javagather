@@ -1,14 +1,20 @@
 ext {
     ver = [
-            spring_boot                 : '2.1.6.RELEASE',
-            spring                      : '5.1.8.RELEASE',
+            spring_boot                 : '2.1.9.RELEASE',
+            spring                      : '5.1.10.RELEASE',
             swagger                     : '2.8.0',
             janino                      : '3.0.8',
             lombok                      : '1.18.4',
             slf4j                       : '1.7.26',
             logback                     : '1.2.3',
             netty                       : '4.1.43.Final',
-            jmh                         : '1.22'
+            jmh                         : '1.22',
+            hikari                      :  '2.9.0',
+            hikariCP                    :  '3.3.1',
+            junit                       :  '4.12',
+            mariadb                     :  '2.5.2',
+            mybatis_spring_boot         :  '2.1.1',
+            mybatis_plus_spring_boot    :  '3.2.0',
     ]
     lib = [
             // spring
@@ -19,15 +25,25 @@ ext {
             spring_boot_starter_web            : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
             spring_boot_starter_test           : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
             spring_boot_starter_undertow       : "org.springframework.boot:spring-boot-starter-undertow:$ver.spring_boot",
+            spring_boot_starter_jpa            : "org.springframework.boot:spring-boot-starter-data-jpa:$ver.spring_boot",
 
             // gradle plugin
             spring_boot_gradle_plugin          : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
 
             netty                              : "io.netty:netty-all:$ver.netty",
-            
+
+            // data
+            hikari                             : "hikari-cp:hikari-cp:$ver.hikari",
+            hikariCP                           : "com.zaxxer:HikariCP:$ver.hikariCP",
+            mariadb                            : "org.mariadb.jdbc:mariadb-java-client:$ver.mariadb",
+            mybatis_spring_boot                : "org.mybatis.spring.boot:mybatis-spring-boot-starter:$ver.mybatis_spring_boot",
+            mybatis_plus_spring_boot           : "com.baomidou:mybatis-plus-boot-starter:$ver.mybatis_plus_spring_boot",
             // utils
             janino                             : "org.codehaus.janino:janino:$ver.janino",
-            lombok                             : "org.projectlombok:lombok:$ver.lombok"
+            lombok                             : "org.projectlombok:lombok:$ver.lombok",
+
+            //test
+            junit                              : "junit:junit:$ver.junit"
     ]
 
 

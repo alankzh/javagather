@@ -2,4 +2,16 @@ dependencies{
     compile libGroup.logback
     compile lib.spring_boot_starter
     compile lib.lombok
+//    compile lib.hikari
+    compile lib.hikariCP
+    compile lib.mariadb
+
+//    compile lib.mybatis_spring_boot
+
+    // mybatis_plus 会引用mybatis,注意jar包不要冲突
+    compile lib.mybatis_plus_spring_boot
+
+    compile lib.spring_boot_starter_jpa
+
+    testCompile lib.junit
 }

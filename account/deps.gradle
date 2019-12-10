@@ -4,6 +4,7 @@ project(':account-api'){
 }
 project(':account-core'){
     dependencies{
+        compile project(':base-core')
     }
 }
 project(':account-biz'){

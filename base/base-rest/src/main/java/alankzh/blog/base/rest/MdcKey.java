@@ -1,4 +1,4 @@
-package alankzh.blog.base.core;
+package alankzh.blog.base.rest;
 
 public enum MdcKey {
     logger_span,

@@ -1,7 +1,7 @@
 package alankzh.blog.base.rest.interceptor;
 
-import alankzh.blog.base.core.MdcComponent;
-import alankzh.blog.base.core.MdcKey;
+import alankzh.blog.base.rest.MdcComponent;
+import alankzh.blog.base.rest.MdcKey;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

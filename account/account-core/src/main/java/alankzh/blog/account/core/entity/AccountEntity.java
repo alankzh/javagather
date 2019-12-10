@@ -10,9 +10,10 @@ import java.util.Date;
 @Accessors(chain = true)
 public class AccountEntity {
     private Long id;
-    private String name;
     private String pwd;
     private String loginAccount;
+    private String email;
+    private String mobile;
     private Date createTime;
     private Date updateTime;
     private Boolean isDelete;

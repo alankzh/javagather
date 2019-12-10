@@ -1,3 +1,6 @@
 dependencies {
     compile lib.lombok
+
+    testCompile lib.junit
+    compile lib.spring_boot_starter_test
 }

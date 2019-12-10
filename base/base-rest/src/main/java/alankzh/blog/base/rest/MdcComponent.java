@@ -1,4 +1,4 @@
-package alankzh.blog.base.core;
+package alankzh.blog.base.rest;
 
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
