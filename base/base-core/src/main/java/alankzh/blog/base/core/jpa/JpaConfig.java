@@ -19,13 +19,5 @@ import java.util.Map;
 @Configuration
 public class JpaConfig {
 
-    @Bean
-    public LocalEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-        HibernateEntityManagerFactory hibernateEntityManagerFactory = new H
 
-
-        LocalEntityManagerFactoryBean localEntityManagerFactoryBean = new LocalEntityManagerFactoryBean();
-        localEntityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
-        return localEntityManagerFactoryBean;
-    }
 }

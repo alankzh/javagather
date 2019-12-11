@@ -2,6 +2,7 @@ ext {
     ver = [
             spring_boot                 : '2.1.9.RELEASE',
             spring                      : '5.1.10.RELEASE',
+            spring_cloud                : 'Greenwich.RELEASE',
             swagger                     : '2.8.0',
             janino                      : '3.0.8',
             lombok                      : '1.18.4',
