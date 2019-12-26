@@ -21,13 +21,13 @@ public class MybatisPlusConfig {
         sqlSessionFactory.setDataSource(dataSource);
         return sqlSessionFactory;
     }
-//
-//    @Bean
-//    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-//        org.apache.ibatis.session.Configuration configuration = sqlSessionFactory.getConfiguration();
-//        configuration.setCallSettersOnNulls(true);
-//        configuration.setMapUnderscoreToCamelCase(true);
-//        return new SqlSessionTemplate(sqlSessionFactory, ExecutorType.REUSE);
-//    }
+
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+        org.apache.ibatis.session.Configuration configuration = sqlSessionFactory.getConfiguration();
+        configuration.setCallSettersOnNulls(true);
+        configuration.setMapUnderscoreToCamelCase(true);
+        return new SqlSessionTemplate(sqlSessionFactory, ExecutorType.REUSE);
+    }
 
 }

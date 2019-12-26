@@ -1,0 +1,6 @@
+project(':comment-rest'){
+    dependencies{
+        compile project(':account-api')
+        compile project(':base-rest')
+    }
+}

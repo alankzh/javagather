@@ -1,5 +1,4 @@
-package alankzh.blog.account.core.entity;
-
+package alankzh.blog.account.api.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -8,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Accessors(chain = true)
-public class AccountEntity {
+public class AccountDto{
     private Long id;
     private String salt;
     private String pwd;
@@ -17,5 +16,4 @@ public class AccountEntity {
     private String mobile;
     private Date createTime;
     private Date updateTime;
-    private Boolean isDelete;
 }

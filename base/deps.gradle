@@ -9,5 +9,6 @@ project(':base-core'){
 project(':base-rest'){
     dependencies{
         compile project(':base-core')
+        compile project(':base-api')
     }
 }

@@ -1,1 +1,4 @@
+include 'comment-rest'
+
+
 rootProject.name=comment
