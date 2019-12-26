@@ -1,8 +1,7 @@
 dependencies {
     compile lib.lombok
     // openfeign 将feign封装为spring mvc注解支持
-    compile lib.spring_cloud_openfeign
-    compile lib.spring_cloud_openfeign_core
+    compile libGroup.openfeign
 
     // 支持标准化注解参数校验, 以及自定义注解校验
     compile lib.spring_boot_starter_validation
