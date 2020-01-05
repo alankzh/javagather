@@ -1,5 +1,6 @@
 include 'base-api'
 include 'base-rest'
 include 'base-core'
+include 'base-job'
 
 rootProject.name=base

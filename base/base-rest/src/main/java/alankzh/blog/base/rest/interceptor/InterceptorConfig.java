@@ -1,8 +1,7 @@
 package alankzh.blog.base.rest.interceptor;
 
-import alankzh.blog.base.rest.MdcComponent;
-import alankzh.blog.base.rest.MdcKey;
-import feign.Logger;
+import alankzh.blog.base.core.log.MdcComponent;
+import alankzh.blog.base.core.log.MdcKey;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

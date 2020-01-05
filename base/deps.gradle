@@ -12,3 +12,8 @@ project(':base-rest'){
         compile project(':base-api')
     }
 }
+project(':base-job'){
+    dependencies{
+        compile project(':base-core')
+    }
+}
