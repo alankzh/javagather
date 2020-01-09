@@ -5,6 +5,7 @@ includeDir 'gateway'
 includeDir 'pages'
 includeDir 'netty_action'
 includeDir 'jmh'
+includeDir 'leet_code'
 
 
 rootProject.name = 'blog'
