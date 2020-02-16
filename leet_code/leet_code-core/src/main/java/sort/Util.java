@@ -15,7 +15,23 @@ public class Util {
         return ar;
     }
 
+    public static double[] genRandomDoubleArray(int length){
+        Random random = new Random();
+        double[] dr = new double[length];
+        for (int i=0; i<length; i++){
+            dr[i] = random.nextDouble();
+        }
+        return dr;
+    }
+
     public static void printIntArray(int[] array){
+        for (int i=0; i<array.length; i++){
+            System.out.print(array[i] + ", ");
+        }
+        System.out.println();
+    }
+
+    public static void printDoubleArray(double[] array){
         for (int i=0; i<array.length; i++){
             System.out.print(array[i] + ", ");
         }
