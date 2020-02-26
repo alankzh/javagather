@@ -39,5 +39,4 @@ public class AStack<E> {
         top--;
         return (E) array[top];
     }
-
 }
