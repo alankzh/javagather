@@ -12,6 +12,9 @@ import org.springframework.util.StringUtils;
 
 import java.util.*;
 
+/**
+ * key-keys方式的一种正确实现
+ */
 @Service
 @Slf4j
 public class BankcardManagerPrefect {
@@ -205,26 +208,6 @@ public class BankcardManagerPrefect {
      */
     public int updateCustomerIdByIdxCardId(){
         throw new RuntimeException("waiting to complete");
-    }
-
-    /**
-     * 灾难性场景
-     * 不知道by哪个字段更新哪个字段
-     * 逻辑分支太多.
-     */
-    @Deprecated
-    public int updateData(BankcardEntity bankcardEntity){
-        throw new RuntimeException("bad method");
-    }
-
-    /**
-     * 灾难性场景2
-     * 根据哪个字段查询?
-     * 这种提供api的方式, 还允许了非索引查询
-     */
-    @Deprecated
-    public List<BankcardEntity> queryForList(BankcardEntity bankcardEntity){
-        throw new RuntimeException("bad method");
     }
 
 

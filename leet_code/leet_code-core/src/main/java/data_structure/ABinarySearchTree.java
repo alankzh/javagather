@@ -1,6 +1,5 @@
 package data_structure;
 
-import com.sun.istack.internal.NotNull;
 
 /**
  * 二叉搜索树
@@ -169,7 +168,7 @@ public class ABinarySearchTree {
      *      3.1 若y为z的右子节点，则y直接替换z。
      *      3.2 若y不为z的右子节点，则y在z的右子树，此时用y的右子节点替换y，然后y替换z
      */
-    public void delete(@NotNull ATreeNode z){
+    public void delete( ATreeNode z){
         if (z.left == null){
             transplant(z, z.right);
         } else if (z.right == null){
@@ -188,7 +187,7 @@ public class ABinarySearchTree {
     }
 
     // 节点v替换u, 并未处理v的left和right，由调用者负责
-    private void transplant(@NotNull ATreeNode u, ATreeNode v){
+    private void transplant( ATreeNode u, ATreeNode v){
         if (u.parent == null){
             this.root = v;
         } else if (u == u.parent.left){

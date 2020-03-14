@@ -32,6 +32,11 @@ public class BankcardManagerPrefectTest {
         }
     }
 
+    /**
+     * race condition
+     * 情景一
+     * 最简单的情景
+     */
     @Test
     public void findByIndexCardId() throws Exception {
         String idxPre = "idx_";
@@ -55,5 +60,17 @@ public class BankcardManagerPrefectTest {
         countDownLatch.countDown();
         Thread.sleep(2000);
     }
+
+    /**
+     * race condition
+     * 情景二
+     * 更复杂的情景
+     * updateByCustomerId  和 queryByIndexCardId 并发执行.
+     * update操作查询key-keys时,查到1个idx在缓存: idx_1
+     * 这时会去删除 key-multi-cid, key-single-idx_1, key-rev-idx_1, key-keys
+     * 而同时query操作完成,在key-keys下挂载了新的后缀: idx_1,idx_2
+     * 但update操作此时完成,key-keys被删除.
+     * 但是孤立的key-single-idx_2 却没有被删除.
+     */
 
 }

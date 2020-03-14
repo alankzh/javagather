@@ -32,6 +32,8 @@ public class BankcardMapperTest {
 
     @Test
     public void updateInformationByIndexCardId() {
+        int ef = bankcardMapper.updateInformationByIndexCardId("aaa", "idx_1");
+        System.out.println(ef);
     }
 
     @Test

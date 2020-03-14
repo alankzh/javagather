@@ -37,6 +37,8 @@ public enum ResultCode {
 
     PARAM_BIND_ERROR(400, "Parameter Binding Error"),
 
+    DATA_NOT_EXIST(444, "data not exist"),
+
     PARAM_VALID_ERROR(400, "Parameter Validation Error");
 
     private final int code;
