@@ -10,9 +10,15 @@ import javax.validation.constraints.NotNull;
 @Accessors(chain = true)
 public class BaseResponse<T> {
     private int code = ResultCode.SUCCESS.getCode();
-    private String msg;
+    private String msg = ResultCode.SUCCESS.getMsg();
 
     private T data;
+
+    public BaseResponse(){
+    }
+    public BaseResponse(T data){
+        this.data = data;
+    }
 
     public static BaseResponse buildWithResultCode(@NotNull ResultCode resultCode){
         return new BaseResponse()

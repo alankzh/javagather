@@ -1,0 +1,7 @@
+dependencies {
+    compile lib.spring_boot_starter_redis
+    compile lib.jedis
+
+    testCompile lib.junit
+    compile lib.spring_boot_starter_test
+}

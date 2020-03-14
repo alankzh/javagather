@@ -6,6 +6,7 @@ includeDir 'pages'
 includeDir 'netty_action'
 includeDir 'jmh'
 includeDir 'leet_code'
+includeDir 'rediskeys'
 
 
 rootProject.name = 'blog'

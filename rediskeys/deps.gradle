@@ -1,0 +1,16 @@
+project(':rediskeys-core'){
+    dependencies{
+        compile project(':base-core')
+    }
+}
+project(':rediskeys-rest'){
+    dependencies{
+        compile project(':rediskeys-biz')
+        compile project(':base-rest')
+    }
+}
+project(':rediskeys-biz'){
+    dependencies{
+        compile project(':rediskeys-core')
+    }
+}

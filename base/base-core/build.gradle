@@ -11,6 +11,8 @@ dependencies{
     // mybatis_plus 会引用mybatis,注意jar包不要冲突
     compile lib.mybatis_plus_spring_boot
 
+    compile lib.jackson_databind
+
 
     testCompile lib.junit
 }

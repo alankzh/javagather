@@ -44,6 +44,4 @@ mainClassName='alankzh.blog.netty.server.EchoServer'
 // 子模块内的deps.gradle依赖插件java，故放到脚本最末，java插件之后
 apply from: "$rootDir/deps.gradle"
 
-dependencies{
-    compile("org.springframework.boot:spring-boot-starter-web")
-}
+

@@ -19,6 +19,8 @@ ext {
             mapstruct                   :  '1.3.1.Final',
             okhttp                      :  '4.2.2',
             openfeign                   :  '10.7.0',
+            jedis                       :  '2.9.0',
+            jackson                     :  '2.9.7',
     ]
     lib = [
 
@@ -28,6 +30,7 @@ ext {
             spring_boot_starter_test           : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
             spring_boot_starter_undertow       : "org.springframework.boot:spring-boot-starter-undertow:$ver.spring_boot",
             spring_boot_starter_validation     : "org.springframework.boot:spring-boot-starter-validation:$ver.spring_boot",
+            spring_boot_starter_redis          : "org.springframework.boot:spring-boot-starter-data-redis:$ver.spring_boot",
 
             // gradle plugin
             spring_boot_gradle_plugin          : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
@@ -41,9 +44,14 @@ ext {
             mariadb                            : "org.mariadb.jdbc:mariadb-java-client:$ver.mariadb",
             mybatis_spring_boot                : "org.mybatis.spring.boot:mybatis-spring-boot-starter:$ver.mybatis_spring_boot",
             mybatis_plus_spring_boot           : "com.baomidou:mybatis-plus-boot-starter:$ver.mybatis_plus_spring_boot",
+
+            jedis                              : "redis.clients:jedis:$ver.jedis",
+
+
             // utils
             janino                             : "org.codehaus.janino:janino:$ver.janino",
             lombok                             : "org.projectlombok:lombok:$ver.lombok",
+            jackson_databind                   : "com.fasterxml.jackson.core:jackson-databind:$ver.jackson",
 
             //test
             junit                              : "junit:junit:$ver.junit"
