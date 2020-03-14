@@ -78,7 +78,9 @@ public class BankcardManagerPrefect {
         Assert.notNull(indexCardId, "fffffff idx");
 
         String key2 = KEY_INDEXCARDID_PREFIX + indexCardId;
+        log.info(key2);
         String value = redisOperationUtil.get(key2);
+        log.info(value);
         if (!StringUtils.isEmpty(value)) {
             return JsonUtil.fromJson(value, BankcardEntity.class);
         }
