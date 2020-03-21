@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class BankcardManagerPrefectTest {
 
     @Autowired
-    private BankcardManagerPrefect bankcardManagerPrefect;
+    private BankcardManagerMaster bankcardManagerPrefect;
 
 
     @Test

@@ -3,6 +3,7 @@ package alankzh.blog.rediskeys.rest.controller;
 import alankzh.blog.base.api.BaseResponse;
 import alankzh.blog.base.api.ResultCode;
 import alankzh.blog.rediskeys.core.BankcardEntity;
+import alankzh.blog.rediskeys.core.manager.BankcardManagerMaster;
 import alankzh.blog.rediskeys.core.manager.BankcardManagerWrong;
 import alankzh.blog.rediskeys.core.manager.BankcardManagerPrefect;
 import alankzh.blog.rediskeys.core.manager.BankcardManagerBetter;
@@ -19,7 +20,7 @@ import java.util.List;
 public class BankCardController {
 
     @Autowired
-    private BankcardManagerPrefect bankcardManager;
+    private BankcardManagerMaster bankcardManager;
 
     @PostMapping("/add")
     public BaseResponse addBankcard(@RequestParam("customerId") String customerId,

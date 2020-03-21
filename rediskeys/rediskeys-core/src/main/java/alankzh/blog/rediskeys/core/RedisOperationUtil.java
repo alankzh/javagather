@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -44,6 +45,39 @@ public class RedisOperationUtil {
         log.info("redis delete all keys:{}", keys);
         redisTemplate.delete(keys);
     }
+
+    public void hput(String hash, String key, String v){
+        redisTemplate.opsForHash().put(hash, key, v);
+    }
+
+    public void hputAll(String hash, Map<String, String> entrySet){
+        redisTemplate.opsForHash().putAll(hash, entrySet);
+    }
+
+    public boolean hputIfAbsent(String hash, String key, String v){
+        return redisTemplate.opsForHash().putIfAbsent(hash, key, v);
+    }
+
+    public String hget(String hash, String key){
+        return (String) redisTemplate.opsForHash().get(hash, key);
+    }
+
+    public Set<Object> hkeys(String hash){
+        return redisTemplate.opsForHash().keys(hash);
+    }
+
+    public List<Object> hvalues(String hash){
+        return redisTemplate.opsForHash().values(hash);
+    }
+
+    public void hdelete(String hash, String key){
+        redisTemplate.opsForHash().delete(hash, key);
+    }
+
+    public void hdeleteAll(String hash, String[] keys){
+        redisTemplate.opsForHash().delete(hash, keys);
+    }
+
 
 
 }
