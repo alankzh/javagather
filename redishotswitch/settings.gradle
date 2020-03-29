@@ -1,0 +1,5 @@
+include 'magic-jedis'
+include 'magic-springdataredis'
+include 'redishotswitch-rest'
+
+rootProject.name='redishotswitch'

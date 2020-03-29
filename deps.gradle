@@ -3,6 +3,7 @@ includeDir 'netty_action'
 includeDir 'base'
 includeDir 'comment'
 includeDir 'rediskeys'
+includeDir 'redishotswitch'
 
 def includeDir(String dir) {
     def file = rootDir.toPath().resolve("$dir/deps.gradle").toFile()

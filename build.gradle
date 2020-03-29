@@ -3,9 +3,10 @@ buildscript{
     repositories {
         mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        mavenCentral()
+//        mavenCentral()
+        maven { url "https://repo.spring.io/libs-milestone/" }
         jcenter()
-        maven { url "http://repo.spring.io/plugins-release" }
+        maven { url "http://repo.spring.io/libs-release" }
     }
     dependencies {
         classpath group: 'junit', name: 'junit', version: '4.12'
@@ -20,9 +21,9 @@ allprojects {
     // 运行 run 之前，还要配置项目的主类，mainClassName = 'com.xxx.xxx' 让 run 能找到它。
     apply plugin: 'application'
 //    apply plugin: 'org.springframework.boot'
-//    dependencies{
+    dependencies{
 //        compile lib.spring_boot_starter_web
-//    }
+    }
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
@@ -43,5 +44,3 @@ mainClassName='alankzh.blog.netty.server.EchoServer'
 
 // 子模块内的deps.gradle依赖插件java，故放到脚本最末，java插件之后
 apply from: "$rootDir/deps.gradle"
-
-

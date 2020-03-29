@@ -1,0 +1,5 @@
+dependencies {
+    compile lib.spring_boot_starter
+    compile lib.spring_boot_starter_web
+    compile libGroup.swagger
+}
