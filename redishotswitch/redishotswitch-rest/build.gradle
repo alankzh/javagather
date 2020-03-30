@@ -1,5 +1,8 @@
 dependencies {
-    compile lib.spring_boot_starter
-    compile lib.spring_boot_starter_web
+    compile "org.springframework:spring-context:4.2.9.RELEASE"
+    compile "org.springframework:spring-core:4.2.9.RELEASE"
+    compile "org.springframework:spring-webmvc:4.2.9.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter:1.5.4.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE"
     compile libGroup.swagger
 }

@@ -1,9 +1,9 @@
 package alankzh.blog.redishotswitch.rest.controller;
 
+import alankzh.blog.redishotswitch.rest.config.MagicManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
-import sss.config.aaa.MagicManager;
 
 import java.util.Random;
 

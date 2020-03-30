@@ -1,34 +1,12 @@
 project(':magic-jedis'){
-    dependencies{
-        compile 'org.apache.commons:commons-pool2:2.4.2'
-    }
 }
 project(':magic-springdataredis'){
     dependencies{
         compile project(':magic-jedis')
-        compile 'org.springframework.data:spring-data-keyvalue:1.1.8.RELEASE'
-        compile 'org.springframework:spring-tx:4.2.9.RELEASE'
-        compile 'org.springframework:spring-oxm:4.2.9.RELEASE'
-        compile 'org.springframework:spring-aop:4.2.9.RELEASE'
-        compile 'org.springframework:spring-context-support:4.2.9.RELEASE'
-
-//        compile 'redis.clients:jedis:2.8.1'  replace with magic-jedis
-//        compile 'org.jredis:jredis-core-api:06052013'
-//        compile 'org.jredis:jredis-core-ri:06052013'
-
-        compile 'com.github.spullara.redis:client:0.7'
-        compile 'biz.paluch.redis:lettuce:3.4.2.Final'
-        compile 'org.codehaus.jackson:jackson-mapper-asl:1.8.8'
-        compile 'com.fasterxml.jackson.core:jackson-core:2.6.7'
-        compile 'com.fasterxml.jackson.core:jackson-databind:2.6.7'
-        compile 'commons-beanutils:commons-beanutils:1.9.2'
-        compile 'org.apache.commons:commons-pool2:2.2'
-        compileOnly 'javax.enterprise:cdi-api:1.0'
     }
 }
 project(':redishotswitch-rest'){
     dependencies{
         compile project(':magic-springdataredis')
-        compile project(':base-rest')
     }
 }

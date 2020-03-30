@@ -16,26 +16,40 @@ public class JedisConfig {
 
     @SuppressWarnings("unchecked")
     @Bean
-    public RedisTemplate<String, String> redisTemplate(AAAJedisConnectionFactory jedisConnectionFactory){
+    public RedisTemplate<String, String> redisTemplate(MagicManager magicManager){
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
-        redisTemplate.setConnectionFactory(jedisConnectionFactory);
+        redisTemplate.setConnectionFactory(magicManager.getRedisConnectionFactory());
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         return redisTemplate;
     }
 
-    /**
-     * 支持版connectionFactory
-     */
     @Bean
-    public AAAJedisConnectionFactory aaaJedisConnectionFactory(RedisClusterConfiguration redisClusterConfiguration,
-                                                         JedisPoolConfig jedisPoolConfig){
-        AAAJedisConnectionFactory jedisConnectionFactory = new AAAJedisConnectionFactory(redisClusterConfiguration);
-        jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
-        jedisConnectionFactory.setTimeout(20000);
-
-//        jedisConnectionFactory.setPassword("123456");
-        return jedisConnectionFactory;
+    public MagicManager magicManager(RedisClusterConfiguration redisClusterConfiguration,
+                                     JedisPoolConfig jedisPoolConfig){
+        return new MagicManager(redisClusterConfiguration, jedisPoolConfig, "");
     }
+
+//    @SuppressWarnings("unchecked")
+//    @Bean
+//    public RedisTemplate<String, String> redisTemplate(AAAJedisConnectionFactory jedisConnectionFactory){
+//        RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
+//        redisTemplate.setConnectionFactory(jedisConnectionFactory);
+//        redisTemplate.setKeySerializer(new StringRedisSerializer());
+//        return redisTemplate;
+//    }
+//    /**
+//     * 支持版connectionFactory
+//     */
+//    @Bean
+//    public AAAJedisConnectionFactory aaaJedisConnectionFactory(RedisClusterConfiguration redisClusterConfiguration,
+//                                                         JedisPoolConfig jedisPoolConfig){
+//        AAAJedisConnectionFactory jedisConnectionFactory = new AAAJedisConnectionFactory(redisClusterConfiguration);
+//        jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
+//        jedisConnectionFactory.setTimeout(20000);
+//
+////        jedisConnectionFactory.setPassword("123456");
+//        return jedisConnectionFactory;
+//    }
 
     /**
      * 原始的Connectionfactory
