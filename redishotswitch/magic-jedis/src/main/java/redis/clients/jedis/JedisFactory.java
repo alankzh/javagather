@@ -1,19 +1,18 @@
 package redis.clients.jedis;
 
-import java.net.URI;
-import java.util.concurrent.atomic.AtomicReference;
+import alankzh.blog.magic.DarkMagician;
+import org.apache.commons.pool2.PooledObject;
+import org.apache.commons.pool2.PooledObjectFactory;
+import org.apache.commons.pool2.impl.DefaultPooledObject;
+import redis.clients.jedis.exceptions.InvalidURIException;
+import redis.clients.jedis.exceptions.JedisException;
+import redis.clients.util.JedisURIHelper;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSocketFactory;
-
-import org.apache.commons.pool2.PooledObject;
-import org.apache.commons.pool2.PooledObjectFactory;
-import org.apache.commons.pool2.impl.DefaultPooledObject;
-
-import redis.clients.jedis.exceptions.InvalidURIException;
-import redis.clients.jedis.exceptions.JedisException;
-import redis.clients.util.JedisURIHelper;
+import java.net.URI;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * PoolableObjectFactory custom impl.
@@ -140,6 +139,19 @@ class JedisFactory implements PooledObjectFactory<Jedis> {
           && hostAndPort.getPort() == connectionPort && jedis.isConnected()
           && jedis.ping().equals("PONG");
     } catch (final Exception e) {
+      // todo 修改点
+      if (DarkMagician.isMagicTime()){
+        return validateWithMagic(jedis);
+      } else {
+        return false;
+      }
+    }
+  }
+  private boolean validateWithMagic(BinaryJedis jedis){
+    try {
+      jedis.auth(DarkMagician.getPassword());
+      return jedis.ping().equals("PONG");
+    } catch (Exception e){
       return false;
     }
   }

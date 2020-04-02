@@ -15,17 +15,6 @@
  */
 package org.springframework.data.redis.core;
 
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -50,6 +39,10 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.CollectionUtils;
+
+import java.lang.reflect.Proxy;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Helper class that simplifies Redis data access code.
@@ -201,7 +194,15 @@ public class RedisTemplate<K, V> extends RedisAccessor implements RedisOperation
 			}
 
 			RedisConnection connToExpose = (exposeConnection ? connToUse : createRedisConnectionProxy(connToUse));
-			T result = action.doInRedis(connToExpose);
+
+			// todo 修改点 重试一次操作，必然会触发validateObject方法
+			T result = null;
+			try {
+				result = action.doInRedis(connToExpose);
+			} catch (Exception e){
+				System.out.println("retry");
+				result = action.doInRedis(connToExpose);
+			}
 
 			// close pipeline
 			if (pipeline && !pipelineStatus) {

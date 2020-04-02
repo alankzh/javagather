@@ -1,4 +1,9 @@
+project(':magic'){
+}
 project(':magic-jedis'){
+    dependencies{
+        compile project(':magic')
+    }
 }
 project(':magic-springdataredis'){
     dependencies{

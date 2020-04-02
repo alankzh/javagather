@@ -15,13 +15,7 @@
  */
 package org.springframework.data.redis.connection.jedis;
 
-import java.lang.reflect.Method;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
+import alankzh.blog.magic.DarkMagician;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
@@ -33,28 +27,16 @@ import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.data.redis.ExceptionTranslationStrategy;
 import org.springframework.data.redis.PassThroughExceptionTranslationStrategy;
 import org.springframework.data.redis.RedisConnectionFailureException;
-import org.springframework.data.redis.connection.ClusterCommandExecutor;
-import org.springframework.data.redis.connection.RedisClusterConfiguration;
-import org.springframework.data.redis.connection.RedisClusterConnection;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisNode;
-import org.springframework.data.redis.connection.RedisSentinelConfiguration;
-import org.springframework.data.redis.connection.RedisSentinelConnection;
+import org.springframework.data.redis.connection.*;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
-
-import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisCluster;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-import redis.clients.jedis.JedisSentinelPool;
-import redis.clients.jedis.JedisShardInfo;
-import redis.clients.jedis.Protocol;
+import redis.clients.jedis.*;
 import redis.clients.util.Pool;
+
+import java.lang.reflect.Method;
+import java.util.*;
 
 /**
  * Connection factory creating <a href="http://github.com/xetorthio/jedis">Jedis</a> based connections.
@@ -234,6 +216,9 @@ public class JedisConnectionFactory implements InitializingBean, DisposableBean,
 		if (clusterConfig != null) {
 			this.cluster = createCluster();
 		}
+
+		// todo 修改点
+		DarkMagician.setInitWithPwd(false);
 	}
 
 	private Pool<Jedis> createPool() {
@@ -295,14 +280,19 @@ public class JedisConnectionFactory implements InitializingBean, DisposableBean,
 
 		int redirects = clusterConfig.getMaxRedirects() != null ? clusterConfig.getMaxRedirects().intValue() : 5;
 
-		if (StringUtils.hasText(getPassword())) {
-			throw new IllegalArgumentException("Jedis does not support password protected Redis Cluster configurations!");
-		}
+		// todo 支持修改点
+//		if (StringUtils.hasText(getPassword())) {
+//			throw new IllegalArgumentException("Jedis does not support password protected Redis Cluster configurations!");
+//		}
 
-		if (poolConfig != null) {
-			return new JedisCluster(hostAndPort, timeout, redirects, poolConfig);
-		}
-		return new JedisCluster(hostAndPort, timeout, redirects, poolConfig);
+		return StringUtils.hasText(getPassword())
+				? new JedisCluster(hostAndPort, timeout, timeout, redirects, password, poolConfig)
+				: new JedisCluster(hostAndPort, timeout, redirects, poolConfig);
+
+//		if (poolConfig != null) {
+//			return new JedisCluster(hostAndPort, timeout, redirects, poolConfig);
+//		}
+//		return new JedisCluster(hostAndPort, timeout, redirects, poolConfig);
 	}
 
 	/*

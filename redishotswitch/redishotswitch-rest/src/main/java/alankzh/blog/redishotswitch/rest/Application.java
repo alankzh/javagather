@@ -16,6 +16,12 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Application.class);
         application.run();
+
+//        boolean getTestOnBorrow = false;
+//        boolean create = true;
+//        boolean testOnCreate = true;
+//        System.out.println(getTestOnBorrow || create && testOnCreate);
+//        System.out.println(getTestOnBorrow || (create && testOnCreate));
     }
 
     @Bean

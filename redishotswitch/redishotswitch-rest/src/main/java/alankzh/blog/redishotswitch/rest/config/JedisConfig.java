@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
@@ -14,29 +15,18 @@ import java.util.Set;
 @Configuration
 public class JedisConfig {
 
+
+
     @SuppressWarnings("unchecked")
     @Bean
-    public RedisTemplate<String, String> redisTemplate(MagicManager magicManager){
+    public RedisTemplate<String, String> redisTemplate(JedisConnectionFactory jedisConnectionFactory){
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
-        redisTemplate.setConnectionFactory(magicManager.getRedisConnectionFactory());
+        redisTemplate.setConnectionFactory(jedisConnectionFactory);
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         return redisTemplate;
     }
 
-    @Bean
-    public MagicManager magicManager(RedisClusterConfiguration redisClusterConfiguration,
-                                     JedisPoolConfig jedisPoolConfig){
-        return new MagicManager(redisClusterConfiguration, jedisPoolConfig, "");
-    }
 
-//    @SuppressWarnings("unchecked")
-//    @Bean
-//    public RedisTemplate<String, String> redisTemplate(AAAJedisConnectionFactory jedisConnectionFactory){
-//        RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
-//        redisTemplate.setConnectionFactory(jedisConnectionFactory);
-//        redisTemplate.setKeySerializer(new StringRedisSerializer());
-//        return redisTemplate;
-//    }
 //    /**
 //     * 支持版connectionFactory
 //     */
@@ -55,17 +45,17 @@ public class JedisConfig {
      * 原始的Connectionfactory
      * @return
      */
-//    @Bean
-//    public JedisConnectionFactory jedisConnectionFactory(RedisClusterConfiguration redisClusterConfiguration,
-//                                                         JedisPoolConfig jedisPoolConfig){
-//        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(redisClusterConfiguration);
-//        jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
-//        jedisConnectionFactory.setTimeout(20000);
-//
+    @Bean
+    public JedisConnectionFactory jedisConnectionFactory(RedisClusterConfiguration redisClusterConfiguration,
+                                                         JedisPoolConfig jedisPoolConfig){
+        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(redisClusterConfiguration);
+        jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
+        jedisConnectionFactory.setTimeout(20000);
+
 //        jedisConnectionFactory.setPassword("123456");
-//
-//        return jedisConnectionFactory;
-//    }
+
+        return jedisConnectionFactory;
+    }
 
 
     @Bean
